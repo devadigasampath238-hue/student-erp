@@ -1,0 +1,892 @@
+/*
+ ╔══════════════════════════════════════════════════════════════╗
+ ║   VARASIDDHI VINAYAKA PU COLLEGE — ERP PORTAL STYLESHEET    ║
+ ║   Keradi, Kundapura, Karnataka 576233                        ║
+ ║   Aesthetic: Scholarly Dashboard — Precision & Authority    ║
+ ╚══════════════════════════════════════════════════════════════╝
+
+ HOW TO USE:
+ Add this line inside <head> of varasiddhi_vinayaka_erp_v5.html:
+ <link rel="stylesheet" href="vsv_erp_portal.css">
+
+ This file OVERRIDES and ENHANCES the embedded ERP styles.
+ It adds: richer typography, smoother animations, better
+ cards, premium color depth, and polished micro-interactions.
+*/
+
+/* ─────────────────────────────────────────
+   GOOGLE FONTS FOR ERP
+──────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ─────────────────────────────────────────
+   ERP DESIGN TOKENS
+──────────────────────────────────────────── */
+:root {
+  /* === Brand Palette === */
+  --erp-navy:      #0a1f3d;
+  --erp-blue-d:    #0d2d5e;
+  --erp-blue:      #1550a0;
+  --erp-blue-l:    #2872d8;
+  --erp-blue-xl:   #5a9eff;
+  --erp-sky:       #dbeafe;
+
+  --erp-gold:      #b5820e;
+  --erp-gold-l:    #d4a017;
+  --erp-gold-xl:   #f5c842;
+  --erp-gold-bg:   rgba(212,160,23,0.08);
+
+  --erp-green:     #16a34a;
+  --erp-green-l:   #22c55e;
+  --erp-green-bg:  rgba(22,163,74,0.08);
+
+  --erp-red:       #dc2626;
+  --erp-red-l:     #f87171;
+  --erp-red-bg:    rgba(220,38,38,0.08);
+
+  --erp-amber:     #d97706;
+  --erp-amber-l:   #fbbf24;
+  --erp-amber-bg:  rgba(217,119,6,0.08);
+
+  --erp-purple:    #7c3aed;
+  --erp-purple-l:  #a78bfa;
+  --erp-purple-bg: rgba(124,58,237,0.08);
+
+  --erp-teal:      #0891b2;
+  --erp-teal-bg:   rgba(8,145,178,0.08);
+
+  /* === Surfaces === */
+  --erp-bg:        #f0f4f8;
+  --erp-bg-d:      #e8eef5;
+  --erp-surface:   #ffffff;
+  --erp-surface-2: #f8fafc;
+  --erp-border:    #dde3ec;
+  --erp-border-2:  #c8d4e2;
+
+  /* === Text === */
+  --erp-ink:       #0d1b2e;
+  --erp-ink-2:     #2d4060;
+  --erp-ink-3:     #5a728a;
+  --erp-ink-4:     #8a9fb5;
+  --erp-ink-5:     #b8cad8;
+
+  /* === Typography === */
+  --erp-font-ui:   'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
+  --erp-font-data: 'IBM Plex Sans', system-ui, sans-serif;
+  --erp-font-mono: 'IBM Plex Mono', 'Fira Code', monospace;
+
+  /* === Spacing === */
+  --erp-s1:  4px;
+  --erp-s2:  8px;
+  --erp-s3:  12px;
+  --erp-s4:  16px;
+  --erp-s5:  24px;
+  --erp-s6:  32px;
+  --erp-s7:  48px;
+
+  /* === Radii === */
+  --erp-r-sm:  6px;
+  --erp-r:     10px;
+  --erp-r-md:  14px;
+  --erp-r-lg:  20px;
+  --erp-r-xl:  28px;
+
+  /* === Shadows === */
+  --erp-shadow-xs: 0 1px 3px rgba(13,27,46,0.06), 0 1px 6px rgba(13,27,46,0.04);
+  --erp-shadow-sm: 0 2px 8px rgba(13,27,46,0.08), 0 4px 16px rgba(13,27,46,0.05);
+  --erp-shadow-md: 0 4px 16px rgba(13,27,46,0.10), 0 8px 32px rgba(13,27,46,0.06);
+  --erp-shadow-lg: 0 8px 32px rgba(13,27,46,0.14), 0 16px 48px rgba(13,27,46,0.08);
+  --erp-shadow-xl: 0 16px 56px rgba(13,27,46,0.18), 0 32px 80px rgba(13,27,46,0.10);
+  --erp-shadow-focus: 0 0 0 3px rgba(21,80,160,0.2);
+  --erp-shadow-blue: 0 4px 20px rgba(21,80,160,0.25);
+
+  /* === Transitions === */
+  --erp-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --erp-t-fast: 120ms;
+  --erp-t-base: 220ms;
+  --erp-t-slow: 400ms;
+}
+
+/* ─────────────────────────────────────────
+   BASE RESETS FOR ERP
+──────────────────────────────────────────── */
+body {
+  font-family: var(--erp-font-ui) !important;
+  background: var(--erp-bg) !important;
+  color: var(--erp-ink) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--erp-font-ui);
+  letter-spacing: -0.01em;
+}
+
+button, input, select, textarea {
+  font-family: var(--erp-font-ui);
+}
+
+code, pre, .mono {
+  font-family: var(--erp-font-mono);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--erp-bg); }
+::-webkit-scrollbar-thumb { background: var(--erp-border-2); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--erp-blue-l); }
+
+/* ─────────────────────────────────────────
+   LANDING PAGE OVERRIDE
+──────────────────────────────────────────── */
+#landPage {
+  background: var(--erp-navy) !important;
+}
+
+/* Slider overlay enhancement */
+.slide-ov {
+  background: linear-gradient(
+    150deg,
+    rgba(6,14,38,0.88) 0%,
+    rgba(10,31,61,0.55) 40%,
+    rgba(6,14,38,0.92) 100%
+  ) !important;
+}
+
+/* Landing nav */
+.lnav {
+  background: rgba(10, 31, 61, 0.90) !important;
+  backdrop-filter: blur(20px) saturate(160%) !important;
+  border-bottom: 1px solid rgba(212, 160, 23, 0.15) !important;
+  padding: 14px 40px !important;
+}
+
+.lnav-seal {
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(212,160,23,0.18)) !important;
+  border: 1px solid rgba(212,160,23,0.25) !important;
+  border-radius: 13px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* Logo text */
+.lnav-logo h1 {
+  font-family: var(--erp-font-ui) !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  letter-spacing: -0.2px !important;
+}
+
+/* Hero heading on landing */
+.hero-ht {
+  font-family: var(--erp-font-ui) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* ─────────────────────────────────────────
+   LOGIN ROLE CARDS
+──────────────────────────────────────────── */
+.role-card, .rc {
+  background: rgba(255,255,255,0.06) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: var(--erp-r-lg) !important;
+  transition:
+    transform var(--erp-t-base) var(--erp-ease),
+    background var(--erp-t-fast),
+    border-color var(--erp-t-fast),
+    box-shadow var(--erp-t-base) !important;
+}
+
+.role-card:hover, .rc:hover {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(212,160,23,0.3) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3) !important;
+}
+
+/* ─────────────────────────────────────────
+   LOGIN FORM PAGES
+──────────────────────────────────────────── */
+.page {
+  background: var(--erp-bg) !important;
+}
+
+/* Login card */
+.login-card, .lc {
+  background: var(--erp-surface) !important;
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-xl) !important;
+  box-shadow: var(--erp-shadow-lg) !important;
+}
+
+/* Form tabs */
+.tab-btn, .tb {
+  font-family: var(--erp-font-ui) !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  border-radius: var(--erp-r-sm) !important;
+  transition: background var(--erp-t-fast), color var(--erp-t-fast) !important;
+}
+
+/* Input fields */
+.login-card input,
+.lc input,
+.form-field input,
+.form-field select {
+  font-family: var(--erp-font-ui) !important;
+  border-radius: var(--erp-r) !important;
+  border: 1.5px solid var(--erp-border) !important;
+  background: var(--erp-surface-2) !important;
+  color: var(--erp-ink) !important;
+  font-size: 14px !important;
+  padding: 11px 14px !important;
+  transition:
+    border-color var(--erp-t-fast),
+    box-shadow var(--erp-t-fast) !important;
+}
+
+.login-card input:focus,
+.lc input:focus {
+  border-color: var(--erp-blue-l) !important;
+  box-shadow: var(--erp-shadow-focus) !important;
+  outline: none !important;
+  background: var(--erp-surface) !important;
+}
+
+/* Login button */
+.login-btn, .lb {
+  background: linear-gradient(135deg, var(--erp-blue-d), var(--erp-blue)) !important;
+  border-radius: var(--erp-r) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  letter-spacing: 0.3px !important;
+  box-shadow: var(--erp-shadow-blue) !important;
+  transition:
+    transform var(--erp-t-base) var(--erp-ease),
+    box-shadow var(--erp-t-base),
+    filter var(--erp-t-fast) !important;
+}
+
+.login-btn:hover, .lb:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.1) !important;
+  box-shadow: 0 8px 32px rgba(21,80,160,0.4) !important;
+}
+
+/* ─────────────────────────────────────────
+   DASHBOARD LAYOUT
+──────────────────────────────────────────── */
+.dash {
+  background: var(--erp-bg) !important;
+}
+
+/* Sidebar */
+.sidebar, .sb {
+  background: var(--erp-navy) !important;
+  border-right: 1px solid rgba(255,255,255,0.05) !important;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.2) !important;
+}
+
+/* Sidebar nav items */
+.sb-item, .nav-item {
+  border-radius: var(--erp-r-sm) !important;
+  margin-inline: 8px !important;
+  transition:
+    background var(--erp-t-fast),
+    color var(--erp-t-fast),
+    transform var(--erp-t-fast) !important;
+}
+
+.sb-item:hover, .nav-item:hover {
+  background: rgba(255,255,255,0.08) !important;
+  transform: translateX(3px) !important;
+}
+
+.sb-item.active, .nav-item.active {
+  background: linear-gradient(90deg, rgba(21,80,160,0.4), rgba(40,114,216,0.2)) !important;
+  border-left: 3px solid var(--erp-gold-l) !important;
+}
+
+/* Top Header */
+.dash-header, .dh {
+  background: var(--erp-surface) !important;
+  border-bottom: 1px solid var(--erp-border) !important;
+  box-shadow: var(--erp-shadow-xs) !important;
+}
+
+/* ─────────────────────────────────────────
+   STAT / METRIC CARDS
+──────────────────────────────────────────── */
+.stat-card, .sc,
+.metric-card, .mc,
+.kpi {
+  background: var(--erp-surface) !important;
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-md) !important;
+  box-shadow: var(--erp-shadow-xs) !important;
+  transition:
+    transform var(--erp-t-base) var(--erp-ease),
+    box-shadow var(--erp-t-base) !important;
+}
+
+.stat-card:hover, .sc:hover,
+.metric-card:hover, .mc:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: var(--erp-shadow-md) !important;
+}
+
+/* KPI numbers */
+.kpi-number, .stat-num, .big-num {
+  font-family: var(--erp-font-ui) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: var(--erp-ink) !important;
+}
+
+/* Color-coded stat accents */
+.stat--blue  { border-top: 3px solid var(--erp-blue) !important; }
+.stat--green { border-top: 3px solid var(--erp-green) !important; }
+.stat--gold  { border-top: 3px solid var(--erp-gold-l) !important; }
+.stat--red   { border-top: 3px solid var(--erp-red) !important; }
+.stat--purple{ border-top: 3px solid var(--erp-purple) !important; }
+.stat--teal  { border-top: 3px solid var(--erp-teal) !important; }
+
+/* ─────────────────────────────────────────
+   DATA TABLES
+──────────────────────────────────────────── */
+table, .data-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  font-family: var(--erp-font-data) !important;
+  font-size: 13.5px !important;
+}
+
+thead tr, table th {
+  background: var(--erp-surface-2) !important;
+  color: var(--erp-ink-3) !important;
+  font-weight: 700 !important;
+  font-size: 11px !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  border-bottom: 2px solid var(--erp-border) !important;
+}
+
+th, td {
+  padding: 12px 16px !important;
+  text-align: left !important;
+  border-bottom: 1px solid var(--erp-border) !important;
+}
+
+tbody tr {
+  transition: background var(--erp-t-fast) !important;
+}
+
+tbody tr:hover {
+  background: var(--erp-sky) !important;
+}
+
+tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* Table container */
+.table-wrap, .tbl-container {
+  background: var(--erp-surface) !important;
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-md) !important;
+  box-shadow: var(--erp-shadow-sm) !important;
+  overflow: hidden !important;
+}
+
+/* ─────────────────────────────────────────
+   ATTENDANCE GRID
+──────────────────────────────────────────── */
+.ac {
+  background: var(--erp-surface) !important;
+  border: 1.5px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-md) !important;
+  padding: 14px 12px !important;
+  cursor: pointer !important;
+  transition:
+    border-color var(--erp-t-fast),
+    background var(--erp-t-fast),
+    transform var(--erp-t-fast),
+    box-shadow var(--erp-t-fast) !important;
+  box-shadow: var(--erp-shadow-xs) !important;
+  user-select: none;
+}
+
+.ac:hover {
+  border-color: var(--erp-blue-l) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: var(--erp-shadow-sm) !important;
+}
+
+.ac.present {
+  background: var(--erp-green-bg) !important;
+  border-color: var(--erp-green) !important;
+  box-shadow: 0 2px 12px rgba(22,163,74,0.15) !important;
+}
+
+.ac.absent {
+  background: var(--erp-red-bg) !important;
+  border-color: var(--erp-red) !important;
+  box-shadow: 0 2px 12px rgba(220,38,38,0.15) !important;
+}
+
+.ac.late {
+  background: var(--erp-amber-bg) !important;
+  border-color: var(--erp-amber) !important;
+  box-shadow: 0 2px 12px rgba(217,119,6,0.15) !important;
+}
+
+/* Avatar in attendance */
+.ac-av {
+  font-size: 28px !important;
+  margin-bottom: 8px !important;
+  line-height: 1 !important;
+}
+
+.ac-nm {
+  font-weight: 700 !important;
+  font-size: 12.5px !important;
+  color: var(--erp-ink) !important;
+  margin-bottom: 2px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.ac-rl {
+  font-size: 10.5px !important;
+  color: var(--erp-ink-4) !important;
+  font-family: var(--erp-font-mono) !important;
+  margin-bottom: 6px !important;
+}
+
+.ac-st {
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS IN ERP
+──────────────────────────────────────────── */
+.btn-primary, .bp,
+button[type="submit"] {
+  background: linear-gradient(135deg, var(--erp-blue-d), var(--erp-blue)) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--erp-r) !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  box-shadow: var(--erp-shadow-blue) !important;
+  transition:
+    transform var(--erp-t-base) var(--erp-ease),
+    filter var(--erp-t-fast),
+    box-shadow var(--erp-t-base) !important;
+}
+
+.btn-primary:hover, .bp:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.1) !important;
+  box-shadow: 0 8px 28px rgba(21,80,160,0.4) !important;
+}
+
+/* Secondary */
+.btn-secondary, .bs {
+  background: var(--erp-surface) !important;
+  color: var(--erp-blue) !important;
+  border: 1.5px solid var(--erp-blue-l) !important;
+  border-radius: var(--erp-r) !important;
+  font-weight: 600 !important;
+  padding: 9px 18px !important;
+  cursor: pointer !important;
+  transition: background var(--erp-t-fast), transform var(--erp-t-base) !important;
+}
+
+.btn-secondary:hover, .bs:hover {
+  background: var(--erp-sky) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Danger */
+.btn-danger, .bd {
+  background: linear-gradient(135deg, #991b1b, var(--erp-red)) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--erp-r) !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: transform var(--erp-t-base), filter var(--erp-t-fast) !important;
+}
+
+.btn-danger:hover, .bd:hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.08) !important;
+}
+
+/* ─────────────────────────────────────────
+   MODALS & PANELS
+──────────────────────────────────────────── */
+.modal, .modal-box, .panel-box {
+  background: var(--erp-surface) !important;
+  border-radius: var(--erp-r-xl) !important;
+  box-shadow: var(--erp-shadow-xl) !important;
+  border: 1px solid var(--erp-border) !important;
+}
+
+.modal-overlay, .overlay {
+  background: rgba(10, 20, 40, 0.65) !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+/* ─────────────────────────────────────────
+   PROFILE CARD
+──────────────────────────────────────────── */
+.profile-card {
+  background: var(--erp-surface) !important;
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-xl) !important;
+  box-shadow: var(--erp-shadow-md) !important;
+}
+
+/* ─────────────────────────────────────────
+   ANNOUNCEMENT CARDS
+──────────────────────────────────────────── */
+.ann-card, .announce {
+  background: var(--erp-surface) !important;
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-md) !important;
+  box-shadow: var(--erp-shadow-xs) !important;
+  transition: transform var(--erp-t-base), box-shadow var(--erp-t-base) !important;
+}
+
+.ann-card:hover { transform: translateY(-2px) !important; box-shadow: var(--erp-shadow-sm) !important; }
+
+.ann-card.urg  { border-left: 4px solid var(--erp-red) !important; }
+.ann-card.inf  { border-left: 4px solid var(--erp-teal) !important; }
+
+/* ─────────────────────────────────────────
+   STATUS BADGES / CHIPS
+──────────────────────────────────────────── */
+.badge, .chip, .tag {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 3px 10px !important;
+  border-radius: var(--erp-r-sm) !important;
+  letter-spacing: 0.3px !important;
+}
+
+.badge--present, .chip--present { background: var(--erp-green-bg) !important; color: var(--erp-green) !important; }
+.badge--absent,  .chip--absent  { background: var(--erp-red-bg) !important; color: var(--erp-red) !important; }
+.badge--late,    .chip--late    { background: var(--erp-amber-bg) !important; color: var(--erp-amber) !important; }
+.badge--blue     { background: rgba(21,80,160,0.1) !important; color: var(--erp-blue) !important; }
+.badge--gold     { background: var(--erp-gold-bg) !important; color: var(--erp-gold) !important; }
+.badge--purple   { background: var(--erp-purple-bg) !important; color: var(--erp-purple) !important; }
+
+/* Lock badge */
+.lock-badge {
+  background: var(--erp-red-bg) !important;
+  color: var(--erp-red) !important;
+  font-size: 10.5px !important;
+  font-weight: 700 !important;
+  padding: 2px 8px !important;
+  border-radius: var(--erp-r-sm) !important;
+}
+
+/* ─────────────────────────────────────────
+   FILE UPLOAD ZONE
+──────────────────────────────────────────── */
+#upZone, .upload-zone {
+  border: 2px dashed var(--erp-border-2) !important;
+  border-radius: var(--erp-r-lg) !important;
+  background: var(--erp-surface-2) !important;
+  transition:
+    border-color var(--erp-t-fast),
+    background var(--erp-t-fast) !important;
+}
+
+#upZone:hover, .upload-zone:hover,
+#upZone.drag-over, .upload-zone.drag-over {
+  border-color: var(--erp-blue-l) !important;
+  background: var(--erp-sky) !important;
+}
+
+/* ─────────────────────────────────────────
+   CANVAS CHART CONTAINERS
+──────────────────────────────────────────── */
+.chart-wrap, .chart-container {
+  background: var(--erp-surface) !important;
+  border: 1px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-md) !important;
+  padding: 20px !important;
+  box-shadow: var(--erp-shadow-xs) !important;
+}
+
+/* ─────────────────────────────────────────
+   TOAST NOTIFICATIONS
+──────────────────────────────────────────── */
+#toastBox {
+  top: 16px !important;
+  right: 16px !important;
+}
+
+.toast {
+  border-radius: var(--erp-r-md) !important;
+  font-family: var(--erp-font-ui) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: 13px 18px !important;
+  box-shadow: var(--erp-shadow-lg) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.t-success { background: linear-gradient(135deg, #15803d, var(--erp-green)) !important; }
+.t-error   { background: linear-gradient(135deg, #991b1b, var(--erp-red)) !important; }
+.t-info    { background: linear-gradient(135deg, var(--erp-blue-d), var(--erp-blue)) !important; }
+.t-warning { background: linear-gradient(135deg, #92400e, var(--erp-amber)) !important; }
+
+/* ─────────────────────────────────────────
+   PAGINATION
+──────────────────────────────────────────── */
+.pag-btn {
+  border-radius: var(--erp-r-sm) !important;
+  font-family: var(--erp-font-ui) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  border: 1.5px solid var(--erp-border) !important;
+  background: var(--erp-surface) !important;
+  color: var(--erp-ink-2) !important;
+  transition: all var(--erp-t-fast) !important;
+  cursor: pointer !important;
+}
+
+.pag-btn:hover {
+  border-color: var(--erp-blue-l) !important;
+  background: var(--erp-sky) !important;
+  color: var(--erp-blue) !important;
+}
+
+.pag-btn.active {
+  background: var(--erp-blue) !important;
+  color: #fff !important;
+  border-color: var(--erp-blue) !important;
+  box-shadow: var(--erp-shadow-blue) !important;
+}
+
+/* ─────────────────────────────────────────
+   SEARCH INPUTS
+──────────────────────────────────────────── */
+input[type="search"],
+input[type="text"].search-input {
+  background: var(--erp-surface) !important;
+  border: 1.5px solid var(--erp-border) !important;
+  border-radius: var(--erp-r-md) !important;
+  font-size: 13.5px !important;
+  padding: 9px 14px !important;
+  color: var(--erp-ink) !important;
+  transition: border-color var(--erp-t-fast), box-shadow var(--erp-t-fast) !important;
+}
+
+input[type="search"]:focus,
+input[type="text"].search-input:focus {
+  outline: none !important;
+  border-color: var(--erp-blue-l) !important;
+  box-shadow: var(--erp-shadow-focus) !important;
+}
+
+/* ─────────────────────────────────────────
+   SELECT DROPDOWNS
+──────────────────────────────────────────── */
+select {
+  background: var(--erp-surface) !important;
+  border: 1.5px solid var(--erp-border) !important;
+  border-radius: var(--erp-r) !important;
+  color: var(--erp-ink) !important;
+  font-size: 13.5px !important;
+  padding: 9px 14px !important;
+  cursor: pointer !important;
+  transition: border-color var(--erp-t-fast), box-shadow var(--erp-t-fast) !important;
+}
+
+select:focus {
+  outline: none !important;
+  border-color: var(--erp-blue-l) !important;
+  box-shadow: var(--erp-shadow-focus) !important;
+}
+
+/* ─────────────────────────────────────────
+   SYSTEM LOGS TABLE
+──────────────────────────────────────────── */
+.log-row td:first-child {
+  font-family: var(--erp-font-mono) !important;
+  font-size: 11.5px !important;
+  color: var(--erp-ink-4) !important;
+}
+
+/* Role cell color coding */
+td.role-student  { color: var(--erp-blue) !important; font-weight: 600 !important; }
+td.role-faculty  { color: var(--erp-green) !important; font-weight: 600 !important; }
+td.role-director { color: var(--erp-purple) !important; font-weight: 600 !important; }
+td.role-admin    { color: var(--erp-red) !important; font-weight: 600 !important; }
+
+/* ─────────────────────────────────────────
+   SIDEBAR USER PROFILE AREA
+──────────────────────────────────────────── */
+.sidebar-user, .sb-user {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: var(--erp-r-md) !important;
+  margin: 8px !important;
+  padding: 12px !important;
+}
+
+.sb-user-name {
+  font-weight: 700 !important;
+  color: #fff !important;
+  font-size: 13px !important;
+}
+
+.sb-user-role {
+  font-size: 10.5px !important;
+  color: rgba(255,255,255,0.5) !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* ─────────────────────────────────────────
+   WELCOME / HOME HERO STRIP
+──────────────────────────────────────────── */
+.welcome-strip, .home-hero {
+  background: linear-gradient(135deg, var(--erp-blue-d), var(--erp-blue)) !important;
+  border-radius: var(--erp-r-lg) !important;
+  box-shadow: var(--erp-shadow-blue) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.welcome-strip::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -40px !important;
+  right: -40px !important;
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.06) !important;
+}
+
+/* ─────────────────────────────────────────
+   SECTION PANEL HEADERS (inside dashboard)
+──────────────────────────────────────────── */
+.panel-header, .ph {
+  border-bottom: 1px solid var(--erp-border) !important;
+  padding-bottom: 14px !important;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.panel-title {
+  font-family: var(--erp-font-ui) !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  color: var(--erp-ink) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.panel-sub {
+  font-size: 12.5px !important;
+  color: var(--erp-ink-4) !important;
+  margin-top: 2px !important;
+}
+
+/* ─────────────────────────────────────────
+   ANIMATIONS
+──────────────────────────────────────────── */
+@keyframes erpFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes erpSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes erpPop {
+  0%   { transform: scale(0.94); opacity: 0; }
+  60%  { transform: scale(1.02); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes erpPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.dash.active {
+  animation: erpFadeIn 0.35s var(--erp-ease) both !important;
+}
+
+.modal-box {
+  animation: erpPop 0.3s var(--erp-ease) both !important;
+}
+
+/* Skeleton loading shimmer */
+@keyframes shimmer {
+  from { background-position: -600px 0; }
+  to   { background-position: 600px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--erp-border) 25%,
+    var(--erp-bg-d) 50%,
+    var(--erp-border) 75%
+  ) !important;
+  background-size: 600px 100% !important;
+  animation: shimmer 1.4s infinite !important;
+  border-radius: var(--erp-r-sm) !important;
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE OVERRIDES
+──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .sidebar, .sb {
+    transform: translateX(-100%);
+    transition: transform var(--erp-t-slow) var(--erp-ease) !important;
+  }
+  .sidebar.open, .sb.open {
+    transform: translateX(0) !important;
+  }
+
+  .stat-card, .sc { padding: 16px !important; }
+
+  table { font-size: 12px !important; }
+  th, td { padding: 9px 12px !important; }
+}
+
+/* ─────────────────────────────────────────
+   PRINT OVERRIDES FOR ERP
+──────────────────────────────────────────── */
+@media print {
+  .sidebar, .sb,
+  .dash-header, .dh,
+  #toastBox,
+  .btn-primary, .btn-secondary,
+  .nav-links { display: none !important; }
+
+  .dash { display: block !important; height: auto !important; }
+  * { box-shadow: none !important; animation: none !important; }
+  table { font-size: 11px !important; }
+}
